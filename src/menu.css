@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap");
+
+.pm {
+  --bg: #ffffff; --paper: #ffffff; --ink: #141111; --muted: #6b6360;
+  --line: #e4dedb; --tile: #f1eeec; --red: #d4121f; --black: #0f0d0d;
+  min-height: 100vh;
+  background: var(--bg); color: var(--ink);
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  font-size: 19px; line-height: 1.4;
+}
+@media (prefers-color-scheme: dark) {
+  .pm { --bg: #141111; --paper: #1e1a1a; --ink: #f5f0ee; --muted: #b3a9a5; --line: #3a3333; --tile: #2a2525; --red: #ef4452; }
+}
+.pm *, .pm *::before, .pm *::after { box-sizing: border-box; }
+
+.pm-stripe { height: 10px; background: repeating-linear-gradient(90deg, var(--red) 0 24px, #fff 24px 48px); }
+
+.pm-header { text-align: center; padding: 40px 20px 30px; background: var(--black); border-bottom: 4px solid var(--red); }
+.pm-est { letter-spacing: .35em; font-size: .78rem; color: #cfc7c3; text-transform: uppercase; }
+.pm-header h1 { font-family: "Playfair Display", Georgia, serif; font-weight: 700; color: #fff; font-size: clamp(2.8rem, 12vw, 5rem); margin: 4px 0 0; letter-spacing: .05em; line-height: 1; }
+.pm-header h1 span { color: var(--red); }
+.pm-tag { font-style: italic; color: #d8d0cc; font-size: 1.2rem; margin: 8px 0 0; }
+
+.pm-nav { position: sticky; top: 0; z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); }
+.pm-tabs { display: flex; gap: 6px; overflow-x: auto; padding: 10px 14px; max-width: 900px; margin: 0 auto; scrollbar-width: none; }
+.pm-tabs::-webkit-scrollbar { display: none; }
+.pm-tabs button { flex: 0 0 auto; font-family: "Playfair Display", Georgia, serif; font-size: .95rem; padding: 9px 18px; border: 0; border-bottom: 2px solid transparent; background: transparent; color: var(--ink); cursor: pointer; white-space: nowrap; }
+.pm-tabs button[aria-selected="true"] { color: #fff; background: var(--red); border-bottom-color: var(--red); border-radius: 999px; }
+.pm-tabs button:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+
+.pm-main { max-width: 900px; margin: 0 auto; padding: 26px 16px 50px; }
+.pm-main section[hidden] { display: none; }
+.pm-cat-head { text-align: center; margin-bottom: 22px; }
+.pm-cat-head h2 { font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 500; font-size: 1.9rem; margin: 0; }
+.pm-cat-head p { margin: 4px 0 0; color: var(--muted); font-size: 1.1rem; font-style: italic; }
+.pm-cat-head i { display: block; width: 44px; height: 2px; background: var(--red); margin: 12px auto 0; }
+
+.pm-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 28px; }
+.pm-item { background: var(--paper); border: 1.5px solid var(--ink); border-radius: 4px; overflow: hidden; box-shadow: 6px 6px 0 var(--red); }
+.pm-photo { aspect-ratio: 4/3; background: var(--tile); border-bottom: 1.5px solid var(--ink); display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+.pm-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pm-body { padding: 14px 16px 18px; text-align: center; }
+.pm-body h3 { font-family: "Playfair Display", Georgia, serif; font-weight: 500; font-size: 1.15rem; margin: 0; }
+.pm-body p { color: var(--muted); font-size: 1.02rem; margin: 4px 0 0; }
+.pm-chip { display: inline-block; margin-top: 10px; font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--bg); background: var(--ink); border-radius: 2px; padding: 3px 12px; }
+
+.pm-footer { text-align: center; padding: 30px 20px 34px; background: var(--black); color: #cfc7c3; font-style: italic; }
+.pm-footer b { font-family: "Playfair Display", Georgia, serif; color: #fff; font-style: normal; letter-spacing: .14em; }
+
+@media (max-width: 520px) { .pm-grid { grid-template-columns: 1fr; } }
