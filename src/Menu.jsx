@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MENU, PHOTO_POSITION } from "./menuData";
+import { MENU, PHOTO_POSITION, PRICES } from "./menuData";
 import "./menu.css";
 
 // "Greek Cake (Grçka)" -> "greek-cake-grcka"
@@ -74,6 +74,12 @@ export default function Menu() {
                 <div className="pm-grid">
                   {g.items.map(([name, desc, img, options]) => (
                     <article className="pm-item" key={name}>
+                      {PRICES[name] && (
+                        <div className="pm-price" aria-label={`${PRICES[name]} denars`}>
+                          <b>{PRICES[name]}</b>
+                          <small>ден.</small>
+                        </div>
+                      )}
                       <div className="pm-photo">
                         <Photo name={name} src={img} icon={g.icon} />
                       </div>
