@@ -7,10 +7,10 @@ export const MENU = [
     groups: [
       { name: "The Espresso Bar", sub: "Strong, short & unapologetically Italian", icon: "☕", tag: "Hot", items: [
         ["Espresso", "The classic shot, rich with a golden crema", "/images/espresso.jpg"],
-        ["Organic Espresso", "Organically grown beans, smooth and clean", "/images/espresso.jpg"],
+        ["Organic Espresso", "Organically grown beans, smooth and clean", "/images/organic-espresso.jpg"],
         ["Ristretto", "Our most concentrated shot, sweet and bold", "/images/espresso.jpg"],
         ["Americano", "Espresso softened with hot water", "/images/americano.jpg"],
-        ["Decaffeinated Coffee", "All the comfort, none of the buzz", "/images/espresso.jpg"],
+        ["Decaffeinated Coffee", "All the comfort, none of the buzz", "/images/decaf.jpg"],
       ]},
       { name: "Milk & Foam", sub: "Creamy, velvety & made to linger over", icon: "🥛", tag: "Hot", items: [
         ["Macchiato — Small", "Espresso “stained” with a spoonful of foam", "/images/macchiato-medium.jpg"],
