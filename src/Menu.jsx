@@ -1,6 +1,25 @@
 import { useState } from "react";
-import { MENU } from "./menuData";
+import { MENU, PHOTO_POSITION } from "./menuData";
 import "./menu.css";
+
+// "Greek Cake (Grçka)" -> "greek-cake-grcka"
+const slug = (name) =>
+  name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+// Looks for /public/images/<slug>.jpg. If the file is missing, shows the icon instead.
+function Photo({ name, src, icon }) {
+  const [failed, setFailed] = useState(false);
+  if (failed) return icon;
+  return (
+    <img
+      src={src || `/images/${slug(name)}.jpg`}
+      alt={name}
+      loading="lazy"
+      style={{ objectPosition: PHOTO_POSITION[name] || "center 50%" }}
+      onError={() => setFailed(true)}
+    />
+  );
+}
 
 export default function Menu() {
   const [active, setActive] = useState(MENU[0].id);
@@ -43,20 +62,38 @@ export default function Menu() {
               <p>{c.sub}</p>
               <i />
             </div>
-            <div className="pm-grid">
-              {c.items.map(([name, desc, img]) => (
-                <article className="pm-item" key={name}>
-                  <div className="pm-photo">
-                    {img ? <img src={img} alt={name} loading="lazy" /> : c.icon}
+
+            {c.groups.map((g, gi) => (
+              <div className="pm-group" key={g.name || gi}>
+                {g.name && (
+                  <div className="pm-group-head">
+                    <h3>{g.name}</h3>
+                    {g.sub && <p>{g.sub}</p>}
                   </div>
-                  <div className="pm-body">
-                    <h3>{name}</h3>
-                    <p>{desc}</p>
-                    <span className="pm-chip">{c.tag}</span>
-                  </div>
-                </article>
-              ))}
-            </div>
+                )}
+                <div className="pm-grid">
+                  {g.items.map(([name, desc, img, options]) => (
+                    <article className="pm-item" key={name}>
+                      <div className="pm-photo">
+                        <Photo name={name} src={img} icon={g.icon} />
+                      </div>
+                      <div className="pm-body">
+                        <h4>{name}</h4>
+                        <p>{desc}</p>
+                        {options && (
+                          <div className="pm-opts" aria-label={`${name} flavors`}>
+                            {options.map((o) => (
+                              <span key={o}>{o}</span>
+                            ))}
+                          </div>
+                        )}
+                        <span className="pm-chip">{g.tag}</span>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            ))}
           </section>
         ))}
       </main>
