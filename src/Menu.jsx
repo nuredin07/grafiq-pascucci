@@ -1,7 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { MENU, PHOTO_POSITION, PRICES } from "./menuData";
 import { LANGS, UI, SECTIONS, GROUPS, ITEMS, detectLang } from "./i18n";
 import "./menu.css";
+import { DRINKS, DRINK_PRICES, DRINK_PHOTO_POSITION, DRINK_PHOTO_LOWER } from "./Drinks";
+
+// Tab order: Coffee, Drinks, then the rest of menuData.js
+const TABS = [MENU[0], DRINKS, ...MENU.slice(1)];
+const ALL_PRICES = { ...PRICES, ...DRINK_PRICES };
+const ALL_POSITIONS = { ...PHOTO_POSITION, ...DRINK_PHOTO_POSITION };
 
 // "Greek Cake (Grçka)" -> "greek-cake-grcka"
 const slug = (name) =>
@@ -11,12 +17,16 @@ const slug = (name) =>
 function Photo({ name, label, src, icon }) {
   const [failed, setFailed] = useState(false);
   if (failed) return icon;
+  const lower = DRINK_PHOTO_LOWER[name];
   return (
     <img
       src={src || `/images/${slug(name)}.jpg`}
       alt={label}
       loading="lazy"
-      style={{ objectPosition: PHOTO_POSITION[name] || "center 50%" }}
+      style={{
+        objectPosition: ALL_POSITIONS[name] || "center 50%",
+        ...(lower ? { transform: `scale(${1 + lower / 100})`, transformOrigin: "top center" } : {}),
+      }}
       onError={() => setFailed(true)}
     />
   );
@@ -41,6 +51,37 @@ export default function Menu() {
       localStorage.setItem("pm-lang", lang);
     } catch (e) {}
   }, [lang]);
+
+  // Sliding highlight behind the active tab
+  const navRef = useRef(null);
+  const tabsRef = useRef(null);
+  const mainRef = useRef(null);
+  const [ind, setInd] = useState({ left: 0, width: 0, ready: false });
+
+  useLayoutEffect(() => {
+    const place = () => {
+      const el = tabsRef.current && tabsRef.current.querySelector('[aria-selected="true"]');
+      if (el) setInd({ left: el.offsetLeft, width: el.offsetWidth, ready: true });
+    };
+    place();
+    window.addEventListener("resize", place);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+    return () => window.removeEventListener("resize", place);
+  }, [active, lang]);
+
+  const selectTab = (id, btn) => {
+    setActive(id);
+    // keep the chosen tab centered inside the swipeable bar
+    const box = tabsRef.current;
+    if (box && btn) box.scrollTo({ left: btn.offsetLeft - (box.clientWidth - btn.offsetWidth) / 2, behavior: "smooth" });
+    // only scroll the page up if the visitor is already below the start of the menu
+    const main = mainRef.current;
+    const nav = navRef.current;
+    if (main && nav) {
+      const top = main.getBoundingClientRect().top + window.scrollY - nav.offsetHeight;
+      if (window.scrollY > top) window.scrollTo({ top, behavior: "smooth" });
+    }
+  };
 
   // Text helpers: English comes from menuData.js, other languages from i18n.js
   const section = (c) => (lang === "en" ? c : { ...c, ...SECTIONS[lang][c.id] });
@@ -67,9 +108,14 @@ export default function Menu() {
         <p className="pm-tag">{ui.tagline}</p>
       </header>
 
-      <nav className="pm-nav">
-        <div className="pm-tabs" role="tablist" aria-label={ui.menuCategories}>
-          {MENU.map((c) => (
+      <nav className="pm-nav" ref={navRef}>
+        <div className="pm-tabs" role="tablist" aria-label={ui.menuCategories} ref={tabsRef}>
+          <span
+            className="pm-ind"
+            aria-hidden="true"
+            style={{ width: ind.width, transform: `translateX(${ind.left}px)`, opacity: ind.ready ? 1 : 0 }}
+          />
+          {TABS.map((c) => (
             <button
               key={c.id}
               type="button"
@@ -77,10 +123,7 @@ export default function Menu() {
               id={`t-${c.id}`}
               aria-selected={active === c.id}
               aria-controls={c.id}
-              onClick={() => {
-                setActive(c.id);
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
+              onClick={(e) => selectTab(c.id, e.currentTarget)}
             >
               {section(c).tab}
             </button>
@@ -88,8 +131,8 @@ export default function Menu() {
         </div>
       </nav>
 
-      <main className="pm-main">
-        {MENU.map((c) => (
+      <main className="pm-main" ref={mainRef}>
+        {TABS.map((c) => (
           <section key={c.id} id={c.id} role="tabpanel" aria-labelledby={`t-${c.id}`} hidden={active !== c.id}>
             <div className="pm-cat-head">
               <h2>{section(c).title}</h2>
@@ -108,13 +151,13 @@ export default function Menu() {
                     </div>
                   )}
                   <div className="pm-grid">
-                    {g0.items.map(([name, desc, img, options]) => {
+                    {g0.items.map(([name, desc, img, options], idx) => {
                       const [tName, tDesc] = item(name, desc);
                       return (
-                        <article className="pm-item" key={name}>
-                          {PRICES[name] && (
-                            <div className="pm-price" aria-label={`${PRICES[name]} ${ui.denars}`}>
-                              <b>{PRICES[name]}</b>
+                        <article className="pm-item" key={name} style={{ "--i": Math.min(idx, 9) }}>
+                          {ALL_PRICES[name] && (
+                            <div className="pm-price" aria-label={`${ALL_PRICES[name]} ${ui.denars}`}>
+                              <b>{ALL_PRICES[name]}</b>
                               <small>{ui.currency}</small>
                             </div>
                           )}

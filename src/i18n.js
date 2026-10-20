@@ -22,7 +22,7 @@ export const UI = {
     flavorNames: {},
   },
   sq: {
-    est: "Kafe & Ëmbëlsira", tagline: "Ku çdo filxhan ndihet si në shtëpi", thanks: "Faleminderit që u ulët me ne",
+    est: "Kafe & Ëmbëlsira", tagline: "Ku çdo filxhan ndihet si në shtëpi", thanks: "Faleminderit që ulët me ne",
     language: "Gjuha", menuCategories: "Kategoritë e menysë", currency: "den.", denars: "denarë", flavors: "shijet",
     tags: { Hot: "E nxehtë", Iced: "Me akull", Sweet: "E ëmbël", Dessert: "Ëmbëlsirë", Frozen: "E ngrirë" },
     flavorNames: { Caramel: "Karamel", Chocolate: "Çokollatë" },
@@ -120,3 +120,73 @@ export const ITEMS = {
     "Ice Cream Waffle Cone": ["Сладолед во вафла корнет", "Топла, златна вафла, нашиот омилен начин"],
   },
 };
+
+// ---------- Drinks tab ----------
+Object.assign(UI.en.tags, { Cold: "Cold", Homemade: "Homemade" });
+Object.assign(UI.sq.tags, { Cold: "E ftohtë", Homemade: "Shtëpiake" });
+Object.assign(UI.mk.tags, { Cold: "Студено", Homemade: "Домашно" });
+
+Object.assign(SECTIONS.sq, { drinks: { tab: "Pije", title: "Pijet Tona", sub: "Të ngrohta, të ftohta dhe shtëpiake, diçka për çdo humor" } });
+Object.assign(SECTIONS.mk, { drinks: { tab: "Пијалаци", title: "Нашите пијалаци", sub: "Топли, ладни и домашни, нешто за секое расположение" } });
+
+Object.assign(GROUPS.sq, {
+  "Hot Drinks": { name: "Pije të Nxehta", sub: "Për ditët e ftohta dhe çastet e qeta" },
+  "Cold Drinks": { name: "Pije të Ftohta", sub: "Freskuese, me gaz dhe pa gaz" },
+  "Home Made Drinks": { name: "Pije Shtëpiake", sub: "Të përgatitura të freskëta çdo ditë" },
+});
+Object.assign(GROUPS.mk, {
+  "Hot Drinks": { name: "Топли пијалаци", sub: "За ладни денови и тивки моменти" },
+  "Cold Drinks": { name: "Ладни пијалаци", sub: "Освежувачки, газирани и негазирани" },
+  "Home Made Drinks": { name: "Домашни пијалаци", sub: "Свежо подготвени секој ден" },
+});
+
+Object.assign(ITEMS.sq, {
+  "Hot Chocolate": ["Çokollatë e Nxehtë", "E trashë, kremoze dhe ngrohëse"],
+  "Salep": ["Salep", "Pije tradicionale e ngrohtë dhe kremoze me kanellë sipër"],
+  "Hot Tea": ["Çaj i Nxehtë", "Një filxhan çlodhës, i shërbyer i nxehtë"],
+  "Sparkling Water": ["Ujë me Gaz", "I freskët dhe me flluska"],
+  "Still Water": ["Ujë pa Gaz", "I pastër dhe freskues"],
+  "Coca Cola": ["Coca Cola", "Klasikja, e shërbyer shumë e ftohtë"],
+  "Coca Cola Zero": ["Coca Cola Zero", "I njëjti shije e shkëlqyer, pa sheqer"],
+  "Sprite": ["Sprite", "Gazim i freskët me limon dhe lime"],
+  "Fanta Orange": ["Fanta Portokalli", "Portokall me gaz, i ndritshëm dhe frutor"],
+  "Fanta Tropical": ["Fanta Tropical", "Shije frutash tropikale me gaz"],
+  "Schweppes": ["Schweppes", "I lehtë, me flluska dhe freskues"],
+  "Schweppes Tonic": ["Schweppes Tonic", "Tonik i freskët, paksa i hidhur"],
+  "Apple Juice": ["Lëng Molle", "I ëmbël dhe frutor, i shërbyer i ftohtë"],
+  "Peach Juice": ["Lëng Pjeshke", "I ëmbël dhe frutor, i shërbyer i ftohtë"],
+  "Orange Juice": ["Lëng Portokalli", "I ëmbël dhe frutor, i shërbyer i ftohtë"],
+  "Vanilla Milkshake": ["Milkshake me Vanilje", "Kremoz, i ëmbël dhe i trashë, me vanilje"],
+  "Chocolate Milkshake": ["Milkshake me Çokollatë", "Çokollatë e pasur, e përzier e trashë dhe e ftohtë"],
+  "Plazma Milkshake": ["Milkshake Plazma", "Shake-u ynë kremoz i shtëpisë, i trashë dhe i ftohtë"],
+  "Slushy": ["Slushy", "I akullt, frutor dhe shumë i ftohtë"],
+  "Banana/Strawberry Smoothie": ["Smoothie Banane/Luleshtrydhe", "Banane dhe luleshtrydhe të freskëta, të përziera butë"],
+  "Banana/Raspberry Smoothie": ["Smoothie Banane/Mjedër", "Banane dhe mjedër të freskëta, të përziera butë"],
+  "Lemon Juice": ["Lëng Limoni", "I freskët, i athët dhe freskues"],
+  "Blueberry Juice": ["Lëng Boronice", "I ëmbël dhe paksa i athët, i përgatitur në shtëpi"],
+});
+Object.assign(ITEMS.mk, {
+  "Hot Chocolate": ["Топло чоколадо", "Густо, кремасто и затоплувачко"],
+  "Salep": ["Салеп", "Традиционален топол и кремаст пијалак со цимет одозгора"],
+  "Hot Tea": ["Топол чај", "Умирувачка шолја, послужена топла"],
+  "Sparkling Water": ["Газирана вода", "Свежа, со меурчиња"],
+  "Still Water": ["Негазирана вода", "Чиста и освежувачка"],
+  "Coca Cola": ["Кока-Кола", "Класиката, послужена многу ладна"],
+  "Coca Cola Zero": ["Кока-Кола Зеро", "Истиот одличен вкус, без шеќер"],
+  "Sprite": ["Спрајт", "Свежо газирање со лимон и лајм"],
+  "Fanta Orange": ["Фанта портокал", "Газиран портокал, свеж и овошен"],
+  "Fanta Tropical": ["Фанта тропикал", "Газирани тропски овошни вкусови"],
+  "Schweppes": ["Швепс", "Лесен, газиран и освежувачки"],
+  "Schweppes Tonic": ["Швепс тоник", "Свеж тоник, малку горчлив"],
+  "Apple Juice": ["Сок од јаболко", "Сладок и овошен, послужен ладен"],
+  "Peach Juice": ["Сок од праска", "Сладок и овошен, послужен ладен"],
+  "Orange Juice": ["Сок од портокал", "Сладок и овошен, послужен ладен"],
+  "Vanilla Milkshake": ["Милкшејк со ванила", "Кремаст, сладок и густ, со ванила"],
+  "Chocolate Milkshake": ["Милкшејк со чоколадо", "Богато чоколадо, измешано густо и ладно"],
+  "Plazma Milkshake": ["Милкшејк Плазма", "Нашиот кремаст домашен шејк, густ и ладен"],
+  "Slushy": ["Слаши", "Мразовито, овошно и многу ладно"],
+  "Banana/Strawberry Smoothie": ["Смути банана/јагода", "Свежа банана и јагода, измешани мазно"],
+  "Banana/Raspberry Smoothie": ["Смути банана/малина", "Свежа банана и малина, измешани мазно"],
+  "Lemon Juice": ["Сок од лимон", "Свеж, кисел и освежувачки"],
+  "Blueberry Juice": ["Сок од боровинка", "Сладок и благо кисел, домашно подготвен"],
+});
