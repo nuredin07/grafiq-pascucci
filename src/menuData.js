@@ -7,8 +7,8 @@ export const MENU = [
     groups: [
       { name: "The Espresso Bar", sub: "Strong, short & unapologetically Italian", icon: "☕", tag: "Hot", items: [
         ["Espresso", "The classic shot, rich with a golden crema", "/images/espresso.jpg"],
-        ["Organic Espresso", "Organically grown beans, smooth and clean", "/images/organic-espresso.jpg"],
-        ["Ristretto", "Our most concentrated shot, sweet and bold", "/images/espresso.jpg"],
+        ["Organic Espresso", "Organically grown beans, smooth and clean", "/images/espresso.jpg"],
+        ["Ristretto", "Our most concentrated shot, sweet and bold", "/images/organic-espresso.jpg"],
         ["Americano", "Espresso softened with hot water", "/images/americano.jpg"],
         ["Decaffeinated Coffee", "All the comfort, none of the buzz", "/images/decaf.jpg"],
       ]},
@@ -43,9 +43,9 @@ export const MENU = [
   {
     id: "gelato", tab: "Ice Cream", title: "Gelato Corner", sub: "Freshly scooped, your way",
     groups: [{ icon: "🍨", tag: "Frozen", items: [
-      ["Ice Cream (Cup)", "Scoops served in a cup, simple and sweet"],
-      ["Ice Cream Cone", "Crisp cone, generous scoops"],
-      ["Ice Cream Waffle Cone", "Warm, golden waffle cone, our favorite way"],
+      ["Ice Cream (Cup)", "Scoops served in a cup, simple and sweet", "/images/akullore.jpg"],
+      ["Ice Cream Cone", "Crisp cone, generous scoops", "/images/akullore-kornet.jpg"],
+      ["Ice Cream Waffle Cone", "Warm, golden waffle cone, our favorite way", "/images/akullore-waffle.jpg"],
     ]}],
   },
 ];
@@ -69,10 +69,13 @@ export const PHOTO_POSITION = { "Iced Coffee": "center 30%",
    "Greek Cake (Grçka)": "center 70%",
    "Americano": "center 80%",
    "Espresso": "center 20%",
-   "Ristretto": "center 20%",
+   "Ristretto": "center 30%",
    "Macchiato — Small": "center 20%",
    "Macchiato — Medium": "center 20%",
    "Organic Espresso": "center 20%",
+   "Ice Cream (Cup)": "center 10%",
+    "Ice Cream Cone": "center 0%",
+    "Ice Cream Waffle Cone": "center 0%",
 };
 
 // Prices in Macedonian denars (ден.). Edit any number here, the cards update by themselves.
