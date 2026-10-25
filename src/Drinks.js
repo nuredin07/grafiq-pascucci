@@ -11,47 +11,44 @@ export const DRINKS = {
     ]},
     { name: "Cold Drinks", sub: "Refreshing, still or sparkling", icon: "🥤", tag: "Cold", items: [
       ["Sparkling Water", "Crisp and fresh, with bubbles"],
-      ["Still Water", "Pure and refreshing"],
+      ["Still Water", "Pure and refreshing", " /images/water.jpg"],
       ["Coca Cola", "The classic, served ice cold", "/images/Cocacola.jpg"],
       ["Coca Cola Zero", "The same great taste, zero sugar", "/images/Cocacola.jpg"],
       ["Sprite", "Crisp lemon-lime fizz", "/images/sprite.jpg"],
       ["Fanta Orange", "Sparkling orange, bright and fruity", "/images/fanta-orange.jpg"],
-      ["Fanta Tropical", "Sparkling tropical fruit flavors"],
-      ["Schweppes", "Light, sparkling and refreshing"],
-      ["Schweppes Tonic", "Crisp tonic with a slightly bitter edge"],
-      ["Apple Juice", "Sweet and fruity, served cold"],
-      ["Peach Juice", "Sweet and fruity, served cold"],
-      ["Orange Juice", "Sweet and fruity, served cold"],
+      ["Fanta Tropical", "Sparkling tropical fruit flavors", "/images/fanta-tropical.jpg"],
+      ["Schweppes Lemon", "Light, sparkling lemon refreshment", "/images/schweppes.jpg"],
+      ["Schweppes Tonic", "Crisp tonic with a slightly bitter edge", "/images/shweppes-tonic.jpg"],
+      ["Apple Juice", "Sweet and fruity, served cold", "/images/apple-juice.jpg"],
+      ["Peach Juice", "Sweet and fruity, served cold", "/images/peach-juice.jpg"],
+      ["Orange Juice", "Sweet and fruity, served cold", "/images/orange-juice.jpg"],
+      ["Iced Tea", "Cool, refreshing and lightly sweet", "/images/iced-tea.jpg"],
+      ["Red Bull", "The energy drink, served ice cold", "/images/redbull.jpg"],
     ]},
     { name: "Home Made Drinks", sub: "Freshly prepared, every single day", icon: "🍹", tag: "Homemade", items: [
-      ["Vanilla Milkshake", "Creamy, sweet and thick, with vanilla"],
-      ["Chocolate Milkshake", "Rich chocolate, blended thick and cold"],
-      ["Plazma Milkshake", "Our creamy house shake, thick and cold"],
-      ["Slushy", "Icy, fruity and wonderfully cold"],
-      ["Banana/Strawberry Smoothie", "Fresh banana and strawberry, blended smooth"],
-      ["Banana/Raspberry Smoothie", "Fresh banana and raspberry, blended smooth"],
-      ["Lemon Juice", "Fresh, tangy and refreshing"],
-      ["Blueberry Juice", "Sweet and lightly tart, homemade"],
+      ["Vanilla Milkshake", "Creamy, sweet and thick, with vanilla" , "/images/vanilla-milkshake.jpg"],
+      ["Chocolate Milkshake", "Rich chocolate, blended thick and cold", "/images/chocolate-milkshake.jpg"],
+      ["Plazma Milkshake", "Our creamy house shake, thick and cold", "/images/plazma-milkshake.jpg"],
+      ["Slushy", "Icy, fruity and wonderfully cold", "/images/slushy.jpg"],
+      ["Banana/Strawberry Smoothie", "Fresh banana and strawberry, blended smooth", "/images/banana-strawberry.jpg"],
+      ["Banana/Raspberry Smoothie", "Fresh banana and raspberry, blended smooth", "/images/banana-raspberry.jpg"],
+      ["Lemon Juice", "Fresh, tangy and refreshing", "/images/lemon.jpg"],
+      ["Blueberry Juice", "Sweet and lightly tart, homemade", "/images/blueberry.jpg"],
+      ["Orange Juice 100%", "100% pure orange juice, bright and refreshing", "/images/orange-juice-100.jpg"],
     ]},
   ],
-};
-
-export const DRINK_PRICES = {
-  "Hot Chocolate": 100, "Salep": 90, "Hot Tea": 50,
-  "Sparkling Water": 40, "Still Water": 40, "Coca Cola": 70, "Coca Cola Zero": 70, "Sprite": 70,
-  "Fanta Orange": 70, "Fanta Tropical": 70, "Schweppes": 70, "Schweppes Tonic": 70,
-  "Apple Juice": 70, "Peach Juice": 70, "Orange Juice": 70,
-  "Vanilla Milkshake": 150, "Chocolate Milkshake": 150, "Plazma Milkshake": 160, "Slushy": 120,
-  "Banana/Strawberry Smoothie": 170, "Banana/Raspberry Smoothie": 170, "Lemon Juice": 100, "Blueberry Juice": 120,
 };
 
 // Move a drink photo up or down inside its card (matched by the English name).
 // A smaller number shows more of the TOP of the photo, a bigger number shows more of the BOTTOM.
 export const DRINK_PHOTO_POSITION = {
   "Coca Cola": "center 10%",
-    "Coca Cola Zero": "center 10%",
-    "Sprite": "center 10%",
-    "Fanta Orange": "center 10%",
+  "Coca Cola Zero": "center 10%",
+  "Sprite": "center 10%",
+  "Fanta Orange": "center 10%",
+  "Fanta Tropical": "center 10%",
+  "Schweppes Lemon": "center 10%",
+  "Schweppes Tonic": "center 10%",
 };
 
 // Push a drink photo LOWER inside its card (matched by the English name).
@@ -60,6 +57,6 @@ export const DRINK_PHOTO_POSITION = {
 export const DRINK_PHOTO_LOWER = {
   "Coca Cola": 10,
   "Coca Cola Zero": 10,
-    "Sprite": 10,
-    "Fanta Orange": 10,
+  "Sprite": 10,
+  "Fanta Orange": 10,
 };

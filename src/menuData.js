@@ -31,7 +31,6 @@ export const MENU = [
   {
     id: "cakes", tab: "Cakes", title: "Dolci della Casa", sub: "Cakes & sweets, perfect beside your coffee",
     groups: [{ icon: "🍰", tag: "Dessert", items: [
-      ["Greek Cake (Grçka)", "A beloved local classic, sweet and syrupy", "/images/grqka.jpg"],
       ["Pistachio Cake", "Soft, nutty and gently green", "/images/pistachio.jpg"],
       ["Full Chocolate Cake", "Chocolate in every single layer", "/images/full-chocolate-cake.jpg"],
       ["Kinder Cake", "Creamy milk and chocolate, a childhood favorite", "/images/kinder-cake.jpg"],

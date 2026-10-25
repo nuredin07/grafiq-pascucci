@@ -151,7 +151,7 @@ Object.assign(ITEMS.sq, {
   "Sprite": ["Sprite", "Gazim i freskët me limon dhe lime"],
   "Fanta Orange": ["Fanta Portokalli", "Portokall me gaz, i ndritshëm dhe frutor"],
   "Fanta Tropical": ["Fanta Tropical", "Shije frutash tropikale me gaz"],
-  "Schweppes": ["Schweppes", "I lehtë, me flluska dhe freskues"],
+  "Schweppes Lemon": ["Schweppes Limon", "Freskues i lehtë me limon, me flluska"],
   "Schweppes Tonic": ["Schweppes Tonic", "Tonik i freskët, paksa i hidhur"],
   "Apple Juice": ["Lëng Molle", "I ëmbël dhe frutor, i shërbyer i ftohtë"],
   "Peach Juice": ["Lëng Pjeshke", "I ëmbël dhe frutor, i shërbyer i ftohtë"],
@@ -176,7 +176,7 @@ Object.assign(ITEMS.mk, {
   "Sprite": ["Спрајт", "Свежо газирање со лимон и лајм"],
   "Fanta Orange": ["Фанта портокал", "Газиран портокал, свеж и овошен"],
   "Fanta Tropical": ["Фанта тропикал", "Газирани тропски овошни вкусови"],
-  "Schweppes": ["Швепс", "Лесен, газиран и освежувачки"],
+  "Schweppes Lemon": ["Швепс лимон", "Лесно лимонско освежување, газирано"],
   "Schweppes Tonic": ["Швепс тоник", "Свеж тоник, малку горчлив"],
   "Apple Juice": ["Сок од јаболко", "Сладок и овошен, послужен ладен"],
   "Peach Juice": ["Сок од праска", "Сладок и овошен, послужен ладен"],
@@ -189,4 +189,38 @@ Object.assign(ITEMS.mk, {
   "Banana/Raspberry Smoothie": ["Смути банана/малина", "Свежа банана и малина, измешани мазно"],
   "Lemon Juice": ["Сок од лимон", "Свеж, кисел и освежувачки"],
   "Blueberry Juice": ["Сок од боровинка", "Сладок и благо кисел, домашно подготвен"],
+});
+
+// ---------- Food tab ----------
+Object.assign(UI.en.tags, { Fresh: "Fresh" });
+Object.assign(UI.sq.tags, { Fresh: "E freskët" });
+Object.assign(UI.mk.tags, { Fresh: "Свежо" });
+
+Object.assign(SECTIONS.sq, { food: { tab: "Ushqim", title: "Nga Kuzhina", sub: "Të ngrohta, të arta dhe të bëra sipas porosisë" } });
+Object.assign(SECTIONS.mk, { food: { tab: "Храна", title: "Од кујната", sub: "Топли, златни и подготвени по нарачка" } });
+
+Object.assign(GROUPS.sq, { "Warm Bites": { name: "Kafshata të Ngrohta", sub: "Të përkryera me një kafe" } });
+Object.assign(GROUPS.mk, { "Warm Bites": { name: "Топли залчиња", sub: "Совршени со кафе" } });
+
+Object.assign(ITEMS.sq, {
+  "Toast": ["Toast", "I artë dhe krokant, drejt nga skara"],
+  "Brioches": ["Brioshe", "Të buta, me gjalpë dhe paksa të ëmbla"],
+  "Petulla": ["Petulla", "Brumë i ngrohtë dhe i fryrë i skuqur, i dashur nga të gjithë"],
+});
+Object.assign(ITEMS.mk, {
+  "Toast": ["Тост", "Златен и крцкав, директно од грилот"],
+  "Brioches": ["Бриоши", "Меки, путерасти и нежно слатки"],
+  "Petulla": ["Петула", "Топло, воздушесто пржено тесто, омилено кај сите"],
+});
+
+// ---------- Added items ----------
+Object.assign(ITEMS.sq, {
+  "Iced Tea": ["Çaj me Akull", "I freskët dhe lehtësisht i ëmbël"],
+  "Red Bull": ["Red Bull", "Pija energjike, e shërbyer shumë e ftohtë"],
+  "Orange Juice 100%": ["Lëng Portokalli 100%", "100% lëng i pastër portokalli, i ndritshëm dhe freskues"],
+});
+Object.assign(ITEMS.mk, {
+  "Iced Tea": ["Ладен чај", "Ладен, освежувачки и лесно сладок"],
+  "Red Bull": ["Ред Бул", "Енергетски пијалак, послужен многу ладен"],
+  "Orange Juice 100%": ["Сок од портокал 100%", "100% чист сок од портокал, свеж и освежувачки"],
 });

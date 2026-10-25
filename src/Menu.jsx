@@ -1,12 +1,13 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { MENU, PHOTO_POSITION, PRICES } from "./menuData";
+import { MENU, PHOTO_POSITION } from "./menuData";
+import { ALL_PRICES } from "./prices";
 import { LANGS, UI, SECTIONS, GROUPS, ITEMS, detectLang } from "./i18n";
 import "./menu.css";
-import { DRINKS, DRINK_PRICES, DRINK_PHOTO_POSITION, DRINK_PHOTO_LOWER } from "./Drinks";
+import { FOOD } from "./Food";
+import { DRINKS, DRINK_PHOTO_POSITION, DRINK_PHOTO_LOWER } from "./Drinks";
 
-// Tab order: Coffee, Drinks, then the rest of menuData.js
-const TABS = [MENU[0], DRINKS, ...MENU.slice(1)];
-const ALL_PRICES = { ...PRICES, ...DRINK_PRICES };
+// Tab order: Coffee, Drinks, Food, then the rest of menuData.js
+const TABS = [MENU[0], DRINKS, FOOD, ...MENU.slice(1)];
 const ALL_POSITIONS = { ...PHOTO_POSITION, ...DRINK_PHOTO_POSITION };
 
 // "Greek Cake (Grçka)" -> "greek-cake-grcka"
